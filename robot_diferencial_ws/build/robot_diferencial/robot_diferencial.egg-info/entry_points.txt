@@ -1,0 +1,2 @@
+[console_scripts]
+cinematica_diferencial = robot_diferencial.cinematica_diferencial:main

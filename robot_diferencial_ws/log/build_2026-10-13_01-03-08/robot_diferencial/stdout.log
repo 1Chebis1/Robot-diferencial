@@ -1,0 +1,31 @@
+running develop
+running egg_info
+creating robot_diferencial.egg-info
+writing robot_diferencial.egg-info/PKG-INFO
+writing dependency_links to robot_diferencial.egg-info/dependency_links.txt
+writing entry points to robot_diferencial.egg-info/entry_points.txt
+writing requirements to robot_diferencial.egg-info/requires.txt
+writing top-level names to robot_diferencial.egg-info/top_level.txt
+writing manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+reading manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+writing manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/python3.12/site-packages/robot-diferencial.egg-link (link to .)
+Installing cinematica_diferencial script to /home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/robot_diferencial
+
+Installed /home/sebastian/robot_diferencial_ws/build/robot_diferencial
+running symlink_data
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index/resource_index
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index/resource_index/packages
+symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/resource/robot_diferencial -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index/resource_index/packages
+symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/package.xml -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/launch
+symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/launch/display.launch.py -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/launch
+symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/launch/simulation.launch.py -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/launch
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/urdf
+symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/urdf/robot.urdf.xacro -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/urdf
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/worlds
+symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/worlds/mundo.sdf -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/worlds
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/rviz
+creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/config

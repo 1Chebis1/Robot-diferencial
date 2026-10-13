@@ -1,0 +1,9 @@
+source;share/robot_diferencial/hook/pythonpath.ps1
+source;share/robot_diferencial/hook/pythonpath.dsv
+source;share/robot_diferencial/hook/pythonpath.sh
+source;share/robot_diferencial/hook/ament_prefix_path.ps1
+source;share/robot_diferencial/hook/ament_prefix_path.dsv
+source;share/robot_diferencial/hook/ament_prefix_path.sh
+source;../../build/robot_diferencial/share/robot_diferencial/hook/pythonpath_develop.ps1
+source;../../build/robot_diferencial/share/robot_diferencial/hook/pythonpath_develop.dsv
+source;../../build/robot_diferencial/share/robot_diferencial/hook/pythonpath_develop.sh

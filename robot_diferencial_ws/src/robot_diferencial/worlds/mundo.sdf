@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="mundo">
+    <physics name="fisica" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Suelo de 30 x 30 m -->
+    <model name="suelo">
+      <static>true</static>
+      <link name="suelo_link">
+        <collision name="suelo_collision">
+          <geometry><plane><normal>0 0 1</normal><size>30 30</size></plane></geometry>
+        </collision>
+        <visual name="suelo_visual">
+          <geometry><plane><normal>0 0 1</normal><size>30 30</size></plane></geometry>
+          <material><ambient>0.65 0.65 0.65 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--
+      Pasillo (ancho libre 1.2 m, paredes de 0.1 m de grosor y 0.6 m de alto).
+      El robot nace en (0,0) mirando +X.
+        1. Tramo recto:   x = -1 a 6 (eje en y = 0)
+        2. Curva a la izquierda de 90 grados (radio del eje 2.0 m, centro en (6, 2)),
+           aproximada con 6 segmentos de 15 grados por pared
+        3. Tramo recto:   y = 2 a 6 (eje en x = 8)
+        4. Embudo:        y = 6 a 8, el ancho libre baja de 1.2 m a 0.8 m
+        5. Tramo angosto: y = 8 a 10, ancho libre 0.8 m, con pared al fondo
+    -->
+    <model name="pasillo">
+      <static>true</static>
+
+      <!-- 1. Tramo recto inicial -->
+      <link name="recto1_izq">
+        <pose>2.45 0.65 0.3 0 0 0</pose>
+        <collision name="c"><geometry><box><size>7.1 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>7.1 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="recto1_der">
+        <pose>2.45 -0.65 0.3 0 0 0</pose>
+        <collision name="c"><geometry><box><size>7.1 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>7.1 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="pared_fondo_inicio">
+        <pose>-1.05 0 0.3 0 0 0</pose>
+        <collision name="c"><geometry><box><size>0.1 1.4 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.1 1.4 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+
+      <!-- 2a. Curva: pared interior (izquierda), radio 1.35 m -->
+      <link name="curva_int_1">
+        <pose>6.1747 0.6730 0.3 0 0 0.1309</pose>
+        <collision name="c"><geometry><box><size>0.45 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.45 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_int_2">
+        <pose>6.5122 0.7634 0.3 0 0 0.3927</pose>
+        <collision name="c"><geometry><box><size>0.45 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.45 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_int_3">
+        <pose>6.8148 0.9381 0.3 0 0 0.6545</pose>
+        <collision name="c"><geometry><box><size>0.45 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.45 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_int_4">
+        <pose>7.0619 1.1852 0.3 0 0 0.9163</pose>
+        <collision name="c"><geometry><box><size>0.45 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.45 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_int_5">
+        <pose>7.2366 1.4878 0.3 0 0 1.1781</pose>
+        <collision name="c"><geometry><box><size>0.45 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.45 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_int_6">
+        <pose>7.3270 1.8253 0.3 0 0 1.4399</pose>
+        <collision name="c"><geometry><box><size>0.45 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.45 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+
+      <!-- 2b. Curva: pared exterior (derecha), radio 2.65 m -->
+      <link name="curva_ext_1">
+        <pose>6.3429 -0.6049 0.3 0 0 0.1309</pose>
+        <collision name="c"><geometry><box><size>0.79 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.79 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_ext_2">
+        <pose>7.0054 -0.4274 0.3 0 0 0.3927</pose>
+        <collision name="c"><geometry><box><size>0.79 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.79 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_ext_3">
+        <pose>7.5994 -0.0844 0.3 0 0 0.6545</pose>
+        <collision name="c"><geometry><box><size>0.79 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.79 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_ext_4">
+        <pose>8.0844 0.4006 0.3 0 0 0.9163</pose>
+        <collision name="c"><geometry><box><size>0.79 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.79 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_ext_5">
+        <pose>8.4274 0.9946 0.3 0 0 1.1781</pose>
+        <collision name="c"><geometry><box><size>0.79 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.79 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="curva_ext_6">
+        <pose>8.6049 1.6571 0.3 0 0 1.4399</pose>
+        <collision name="c"><geometry><box><size>0.79 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.79 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+
+      <!-- 3. Segundo tramo recto (hacia +Y, eje en x = 8) -->
+      <link name="recto2_izq">
+        <pose>7.35 4.0 0.3 0 0 1.5708</pose>
+        <collision name="c"><geometry><box><size>4.0 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>4.0 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+      <link name="recto2_der">
+        <pose>8.65 4.0 0.3 0 0 1.5708</pose>
+        <collision name="c"><geometry><box><size>4.0 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>4.0 0.1 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.7 0.7 0.75 1</diffuse></material></visual>
+      </link>
+
+      <!-- 4. Embudo: de 1.2 m a 0.8 m de ancho libre -->
+      <link name="embudo_izq">
+        <pose>7.45 7.0 0.3 0 0 1.4711</pose>
+        <collision name="c"><geometry><box><size>2.11 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.11 0.1 0.6</size></box></geometry>
+          <material><ambient>0.85 0.55 0.25 1</ambient><diffuse>0.85 0.55 0.25 1</diffuse></material></visual>
+      </link>
+      <link name="embudo_der">
+        <pose>8.55 7.0 0.3 0 0 1.6705</pose>
+        <collision name="c"><geometry><box><size>2.11 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.11 0.1 0.6</size></box></geometry>
+          <material><ambient>0.85 0.55 0.25 1</ambient><diffuse>0.85 0.55 0.25 1</diffuse></material></visual>
+      </link>
+
+      <!-- 5. Tramo angosto (0.8 m libres) y pared final -->
+      <link name="angosto_izq">
+        <pose>7.55 9.0 0.3 0 0 1.5708</pose>
+        <collision name="c"><geometry><box><size>2.0 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.0 0.1 0.6</size></box></geometry>
+          <material><ambient>0.85 0.55 0.25 1</ambient><diffuse>0.85 0.55 0.25 1</diffuse></material></visual>
+      </link>
+      <link name="angosto_der">
+        <pose>8.45 9.0 0.3 0 0 1.5708</pose>
+        <collision name="c"><geometry><box><size>2.0 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.0 0.1 0.6</size></box></geometry>
+          <material><ambient>0.85 0.55 0.25 1</ambient><diffuse>0.85 0.55 0.25 1</diffuse></material></visual>
+      </link>
+      <link name="pared_final">
+        <pose>8.0 10.05 0.3 0 0 0</pose>
+        <collision name="c"><geometry><box><size>1.0 0.1 0.6</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>1.0 0.1 0.6</size></box></geometry>
+          <material><ambient>0.85 0.2 0.2 1</ambient><diffuse>0.85 0.2 0.2 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Cilindro obstaculo en el tramo recto inicial (desplazado a la izquierda del eje) -->
+    <model name="cilindro_obstaculo">
+      <static>true</static>
+      <pose>3.0 0.15 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.12</radius><length>0.6</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.12</radius><length>0.6</length></cylinder></geometry>
+          <material><ambient>0.9 0.4 0.1 1</ambient><diffuse>0.9 0.4 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

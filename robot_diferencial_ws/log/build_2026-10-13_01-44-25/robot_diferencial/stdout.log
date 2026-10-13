@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing robot_diferencial.egg-info/PKG-INFO
+writing dependency_links to robot_diferencial.egg-info/dependency_links.txt
+writing entry points to robot_diferencial.egg-info/entry_points.txt
+writing requirements to robot_diferencial.egg-info/requires.txt
+writing top-level names to robot_diferencial.egg-info/top_level.txt
+reading manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+writing manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/python3.12/site-packages/robot-diferencial.egg-link (link to .)
+Installing cinematica_diferencial script to /home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/robot_diferencial
+
+Installed /home/sebastian/robot_diferencial_ws/build/robot_diferencial
+running symlink_data

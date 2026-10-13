@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+launch/display.launch.py
+launch/simulation.launch.py
+resource/robot_diferencial
+robot_diferencial/__init__.py
+robot_diferencial/cinematica_diferencial.py
+robot_diferencial.egg-info/PKG-INFO
+robot_diferencial.egg-info/SOURCES.txt
+robot_diferencial.egg-info/dependency_links.txt
+robot_diferencial.egg-info/entry_points.txt
+robot_diferencial.egg-info/requires.txt
+robot_diferencial.egg-info/top_level.txt
+robot_diferencial.egg-info/zip-safe
+urdf/robot.urdf.xacro
+worlds/mundo.sdf

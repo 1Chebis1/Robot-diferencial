@@ -1,0 +1,33 @@
+[1.534s] Invoking command in '/home/sebastian/robot_diferencial_ws/build/robot_diferencial': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sebastian/robot_diferencial_ws/build/robot_diferencial/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sebastian/robot_diferencial_ws/build/robot_diferencial/build --no-deps symlink_data
+[1.906s] running develop
+[2.105s] running egg_info
+[2.105s] creating robot_diferencial.egg-info
+[2.124s] writing robot_diferencial.egg-info/PKG-INFO
+[2.125s] writing dependency_links to robot_diferencial.egg-info/dependency_links.txt
+[2.125s] writing entry points to robot_diferencial.egg-info/entry_points.txt
+[2.125s] writing requirements to robot_diferencial.egg-info/requires.txt
+[2.125s] writing top-level names to robot_diferencial.egg-info/top_level.txt
+[2.125s] writing manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+[2.159s] reading manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+[2.159s] writing manifest file 'robot_diferencial.egg-info/SOURCES.txt'
+[2.175s] running build_ext
+[2.175s] Creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/python3.12/site-packages/robot-diferencial.egg-link (link to .)
+[2.175s] Installing cinematica_diferencial script to /home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/robot_diferencial
+[2.176s] 
+[2.176s] Installed /home/sebastian/robot_diferencial_ws/build/robot_diferencial
+[2.176s] running symlink_data
+[2.176s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index
+[2.176s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index/resource_index
+[2.176s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index/resource_index/packages
+[2.176s] symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/resource/robot_diferencial -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/ament_index/resource_index/packages
+[2.177s] symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/package.xml -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial
+[2.177s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/launch
+[2.177s] symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/launch/display.launch.py -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/launch
+[2.177s] symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/launch/simulation.launch.py -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/launch
+[2.177s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/urdf
+[2.177s] symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/urdf/robot.urdf.xacro -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/urdf
+[2.177s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/worlds
+[2.177s] symbolically linking /home/sebastian/robot_diferencial_ws/build/robot_diferencial/worlds/mundo.sdf -> /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/worlds
+[2.177s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/rviz
+[2.177s] creating /home/sebastian/robot_diferencial_ws/install/robot_diferencial/share/robot_diferencial/config
+[2.201s] Invoked command in '/home/sebastian/robot_diferencial_ws/build/robot_diferencial' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sebastian/robot_diferencial_ws/build/robot_diferencial/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sebastian/robot_diferencial_ws/install/robot_diferencial/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sebastian/robot_diferencial_ws/build/robot_diferencial/build --no-deps symlink_data
