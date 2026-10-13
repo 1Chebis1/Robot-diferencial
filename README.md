@@ -4,11 +4,6 @@
 
 Simulación de un robot móvil diferencial en **ROS 2 Jazzy** y **Gazebo Harmonic**, con LiDAR 2D, cámara RGB, odometría, árbol TF y un nodo propio de cinemática diferencial. El robot recorre un pasillo con una curva, un cilindro como obstáculo y un tramo final angosto.
 
-![ROS 2 Jazzy](https://img.shields.io/badge/ROS%202-Jazzy-blue)
-![Gazebo](https://img.shields.io/badge/Gazebo-Harmonic-orange)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420)
-![License](https://img.shields.io/badge/License-Apache--2.0-green)
-
 <!-- Agrega aquí una captura o un GIF de la simulación -->
 <!-- ![Simulación](docs/simulacion.png) -->
 
